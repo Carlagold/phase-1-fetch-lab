@@ -1,8 +1,9 @@
 function fetchBooks() {
-  // To pass the tests, don't forget to return your fetch!
-  
-}
-
+// To pass the tests, don't forget to return your fetch!
+  return fetch("https://anapioficeandfire.com/api/books")
+  .then(response => response.json())                                    
+  .then(json => renderBooks(json))
+  }
 function renderBooks(books) {
   const main = document.querySelector('main');
   books.forEach(book => {
@@ -11,7 +12,9 @@ function renderBooks(books) {
     main.appendChild(h2);
   });
 }
-
 document.addEventListener('DOMContentLoaded', function() {
   fetchBooks();
 });
+   // On line (5) .then (function (json) { 
+   // //   console.log(json); 
+  // })///** instead to console.log() the lab is asking to Pass json into renderBook(books) another function.
